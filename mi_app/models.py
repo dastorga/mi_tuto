@@ -27,11 +27,11 @@ class Curso(models.Model):
     def __str__(self):
         return "{0} ({1})".format(self.Nombre, self.Creditos)
 
-# class Matricula(models.Model):
-#     Alumno = models.ForeignKey(Alumno, null=False, black=False, on_delete=models.CASCADE)
-#     Curso = models.ForeignKey(Curso, null=False, black=False, on_delete=models.CASCADE)
-#     FechaMatricula = models.DateTimeField(auto_now_add=True)
-#
-#     def __str__(self):
-#         cadena = "{0} => {1}"
-#         return cadena.format(self.Alumno, self.Curso.Nombre)
+class Matricula(models.Model):
+    Alumno = models.ForeignKey(Alumno, null=False, on_delete=models.CASCADE)
+    Curso = models.ForeignKey(Curso, null=False, on_delete=models.CASCADE)
+    FechaMatricula = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        cadena = "{0} => {1}"
+        return cadena.format(self.Alumno, self.Curso.Nombre)
