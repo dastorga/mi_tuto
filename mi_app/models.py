@@ -21,7 +21,8 @@ class Alumno(models.Model):
 
 class Curso(models.Model):
     Nombre = models.CharField(max_length=50)
-    Creditos = models.PositiveSmallIntegerField()
+    AÑOS = (('1', 'Primero'), ('2', 'Segundo'), ('3', 'Tercero'), ('4', 'Cuarto'), ('5', 'Quinto'))
+    Creditos = models.CharField(max_length=1, choices=AÑOS, default='1')
     Estado = models.BooleanField(default=True)
 
     def __str__(self):
