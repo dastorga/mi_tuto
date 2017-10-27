@@ -21,12 +21,16 @@ class Alumno(models.Model):
 
 class Curso(models.Model):
     Nombre = models.CharField(max_length=50)
+    Codigo = models.PositiveIntegerField(null=False)
     AÑOS = (('1', 'Primero'), ('2', 'Segundo'), ('3', 'Tercero'), ('4', 'Cuarto'), ('5', 'Quinto'))
-    Creditos = models.CharField(max_length=1, choices=AÑOS, default='1')
+    Año = models.CharField(max_length=1, choices=AÑOS, default='1')
     Estado = models.BooleanField(default=True)
 
+    # texto = models.FileField(upload_to='/Documentos', null=True)
+    # FilePathField(path="/home/images", match="foo.*", recursive=True)
+
     def __str__(self):
-        return "{0} ({1})".format(self.Nombre, self.Creditos)
+        return "{0} ({1})".format(self.Nombre, self.Año)
 
 class Matricula(models.Model):
     Alumno = models.ForeignKey(Alumno, null=False, on_delete=models.CASCADE)
