@@ -1,3 +1,3 @@
-# App University
-## Web system, RestFul Python 2.7.10 + Django
-<p><img src="python-logo.png" width="20%"/></p>
+# Web System University 2017
+RestFul Python 3.6.3 + Django + SQLite3
+<p><img src="python-logo.png" width="25%"/></p>
