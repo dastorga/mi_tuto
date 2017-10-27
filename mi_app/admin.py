@@ -8,3 +8,4 @@ from mi_app.models import Alumno, Curso, Matricula
 admin.site.register(Alumno)
 admin.site.register(Curso)
 admin.site.register(Matricula)
+admin.site.register(Document)

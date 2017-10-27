@@ -17,7 +17,11 @@ class Alumno(models.Model):
 
     def __str__(self):
         return self.NombreCompleto()
-
+    
+class Document(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    document = models.FileField(upload_to='documents/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class Curso(models.Model):
     Nombre = models.CharField(max_length=50)
@@ -25,9 +29,6 @@ class Curso(models.Model):
     AÑOS = (('1', 'Primero'), ('2', 'Segundo'), ('3', 'Tercero'), ('4', 'Cuarto'), ('5', 'Quinto'))
     Año = models.CharField(max_length=1, choices=AÑOS, default='1')
     Estado = models.BooleanField(default=True)
-
-    # texto = models.FileField(upload_to='/Documentos', null=True)
-    # FilePathField(path="/home/images", match="foo.*", recursive=True)
 
     def __str__(self):
         return "{0} ({1})".format(self.Nombre, self.Año)
